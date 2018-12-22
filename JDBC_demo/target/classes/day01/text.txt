@@ -1,0 +1,58 @@
+###使用jdbc
+
+1.導包 ---> 導入數據庫驅動.
+	-使用maven.
+	
+2.註冊驅動.
+
+	Class.forName("com.mysql.jdbc.Driver");
+	
+3.獲取數據庫連接對象Conncetion.
+
+		//url	jdbc:mysql://數據庫主機IP:端口號/demo1
+		String url="jdbc:mysql://localhost:3306/demo1";
+		String user="root";	//mysql登入名
+		String password="root";//登入密碼
+		
+		Connection conn = DriverManager.getConnection(url,user,password);
+		System.out.println(conn);
+	
+	- 相當於在終端完成選定庫的操作.
+		
+4.獲得statement對象,處理執行sql語句.
+
+	Statement sta = conn.createStatement();
+
+5.編寫sql語句,並且執行.
+
+	sta.execute(sql)-->ddl dcl
+	-- 返回dml語句影響了幾行
+	int sta.executeUpdate(dml)
+	-- dql查詢的結果集-->ResultSet
+	sta.executeQuery(dql)
+	
+6.處理查詢結果.
+
+	while(re.next()){
+		int id = rs.getInt("id");
+		String name = rs.getString("name");
+		
+	}
+7.關閉資源
+	- conn必須關閉.
+	- rs建議關閉.
+	- sta建議關閉.
+	- 注意關閉順序,先開的後關.
+		
+- 連接的管理.
+- 初步封裝.
+- 封裝進階.
+
+- 使用properties api完成4個str參數保存.
+- properties底層就是為了處理IO.
+- 實現了map接口.
+- 使用properties就是為了處理*.properties文件.
+- 存儲的鍵值對,要求鍵值都是String.
+
+- 整合封裝
+

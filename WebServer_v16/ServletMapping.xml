@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"/>
+<mappings>
+	<mapping uri="/myweb/reg" classname="com.tedu.servlets.RegServlet"></mapping>
+	<mapping uri="/myweb/login" classname="com.tedu.servlets.LoginServlet"></mapping>
+	
+	<mapping uri="/web/web/reg" classname="com.tedu.servlets.WebRegServlet"></mapping>
+</mappings>

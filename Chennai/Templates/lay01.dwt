@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>無標題文件</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link href="../css/Mycss.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="wrapper">
+  <div id="header">
+  <h1 id="logo"><a href="#">網站關鍵字</a></h1></div>
+<ul id="nav">
+    <li><a href="../page/about.html" id="btn1">關於我</a></li>
+    <li><a href="../page/myself.html" id="btn2">我的自傳</a></li>
+    <li><a href="../page/learn.html" id="btn3">學習歷程</a></li>
+    <li><a href="../page/plan.html" id="btn4">學習規劃</a></li>
+    <li><a href="../page/gain.html" id="btn5">學習心得</a></li>
+    </ul>
+  
+  <div id="container"><!-- TemplateBeginEditable name="container" -->container<!-- TemplateEndEditable --></div>
+  <div id="footer">編寫日期:2016/02/02</div>
+</div>
+</body>
+</html>

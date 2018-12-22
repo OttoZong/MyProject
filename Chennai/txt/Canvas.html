@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<style type="text/css">
+#c1 {
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #03F;
+	border-right-color: #03F;
+	border-bottom-color: #03F;
+	border-left-color: #03F;
+}
+</style>
+<script>
+window.onload=function(){
+btn1.addEventListener("click,draw1")
+btn2.addEventListener("click,draw2")
+btn3.addEventListener("click,draw3")
+clear.addEventListener("click,clearAll")
+}
+function draw1(){
+	var canvas =document.getElementById('c1');
+		var c = canvas.getContext('2d');
+	c.fillstyle = "#FF0000";
+	c.fillRect(0,0,150,300);
+	c.fillstyle = "rgba(0,0,200,0.5)";
+	c.fillRect(50,30,150,300);
+}
+function draw2(){
+	var canvas =document.getElementById('c1');
+	var c = canvas.getContext('2d');
+	c.beginpath();
+	c.moveTo(50,50);
+	c.lineTo(150,150);
+	c.lineTo(150,50);
+	c.closePath();
+	c.strokeStyle="#FF0000";
+	c.stroke();
+	c.fillstyle="yellow";
+	c.fill();
+}
+</script>
+</head>
+
+
+
+<body>
+<input type="button" name="btn1" id="btn1" value="畫圓"/>
+<input type="button" name="btn2" id="btn2" value="畫線"/>
+<input type="button" name="btn3" id="btn3" value="畫圓"/>
+<input type="button" id="btn4" value="清除"/>
+<br /><br />
+<canvas id="c1" width="500" height="300"></canvas>
+
+</body>
+</html>

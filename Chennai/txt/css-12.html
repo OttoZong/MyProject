@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3-Transition</title>
+<style type="text/css">
+body{
+	background-color:#E4ED89;
+}
+div{
+	width:500px;
+	height:50px;
+	background-color:#AFF0FB;
+	color:#60090A;
+	font-size:26px;
+	margin:10px;
+	text-align:center;
+	
+}
+
+
+#Topmenu{
+	width:100px;
+	height:35px;
+	background-color:#E86265;
+	color:#FFF6F6;
+	font-size:26px;
+	margin:10px;
+	padding-top:15px;
+	text-align:center;
+	border-radius:10px;
+	overflow:hidden;
+	float:left;
+	transition:height,1.5s;
+	
+	
+}
+#Topmenu:hover{
+	cursor:pointer;
+	height:130px;
+}
+#Topmenu span{
+	color:rgba(255,255,0,1.00);
+	font-size:18px;
+}
+
+#Topmenu span:hover{
+	cursor:pointer;
+	color:rgba(10,0,255,1.00)
+}
+</style>
+</head>
+
+<body>
+<div>Hello! this is CSS3 </div>
+<div id="Topmenu">
+Home<br>
+<span>History</span><br>
+<span>Awards</span><br>
+<span>Pepole</span>
+</div>
+
+<div id="Topmenu">
+Portfolio<br>
+<span>SightView</span><br>
+<span>Landing</span><br>
+<span>AtrDesign</span>
+</div>
+
+<div id="Topmenu">
+PC Skill<br>
+<span>Graphic</span><br>
+<span>Website</span><br>
+<span>Animation</span>
+</div>
+
+<div id="Topmenu">
+Contact<br>
+<span>Message</span><br>
+<span>Mapguide</span><br>
+<span>FaceBook</span>
+</div>
+
+</body>
+</html>

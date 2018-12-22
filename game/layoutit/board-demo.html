@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tw">
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>GDP Point排行榜</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<script src="js/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style>
+
+</style>
+
+<script>
+var date = new XMLHttpRequest();
+
+date.onload = function (oEvent) {
+  var arrayBuffer = date.response;
+  if ( arrayBuffer ){
+    var byteArray = new Uint8Array(arrayBuffer);
+    for (var i = 0; i < byteArray.byteLength; i++) {
+    // console.log(arrayBuffer);
+
+    }
+  }
+};
+date.open('post','https://event.gdp.world/api.php?act=demo',true);
+date.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+date.responseType = ""; //responseType可以設置XMLHttpRequest對象的屬性以更改服務器的預期響應類型。可能的值是空字符串（默認）， ，"arraybuffer"，"blob"，"document"，"json"和"text"。
+  console.log(date);
+date.send();
+$( "#debug" ).html( date );
+
+
+</script>
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-2">
+						</div>
+						<div class="col-md-8">
+							<div class="list-group">
+								 <h4 class="list-group-item list-group-item-action active">GDP Point排行榜</h5>
+								<h5 id="no1" class="list-group-item">
+									No1
+								</h5> <a id="first"></a>
+								<div class="list-group-item">
+									<h5 id="no2" class="list-group-item-heading">
+									No2
+									</h5> <a id="second"></a>
+								</div>
+								<h5 id="no3" class="list-group-item justify-content-between">
+									No3
+								</5> <a id="third"></a>
+							</div>
+						</div>
+						<div class="col-md-2">
+						</div>
+            <input type="text" id="debug" value="">
+          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+  </body>
+</html>

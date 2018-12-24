@@ -23,7 +23,7 @@ public class AddUserServlet extends HttpServlet{
 				response.getWriter();
 		
 		/*
-		 * Åª¨ú¥Î¤á«H®§
+		 * è®€å–ç”¨æˆ¶ä¿¡æ¯
 		 */
 		String username = 
 				request.getParameter("uname");
@@ -37,12 +37,12 @@ public class AddUserServlet extends HttpServlet{
 				+ pwd + " phone:" + phone);
 		
 		/*
-		 * ªA°È¾¹ºİÀ³¸Ó¹ï¥Î¤á´£¥æªº¼Æ¾Ú¶i¦æ¦Xªk©ÊÀË¬d,
-		 * ¤ñ¦p,ÀË¬d¥Î¤á¦W¬O§_¬°ªÅµ¥,¦¹³B¼È®É¤£¦Ò¼{.
+		 * æœå‹™å™¨ç«¯æ‡‰è©²å°ç”¨æˆ¶æäº¤çš„æ•¸æ“šé€²è¡Œåˆæ³•æ€§æª¢æŸ¥,
+		 * æ¯”å¦‚,æª¢æŸ¥ç”¨æˆ¶åæ˜¯å¦ç‚ºç©ºç­‰,æ­¤è™•æš«æ™‚ä¸è€ƒæ…®.
 		 */
 		
 		/*
-		 * ¨Ï¥ÎDAO±N¥Î¤á«H®§´¡¤J¨ì¼Æ¾Ú®w.
+		 * ä½¿ç”¨DAOå°‡ç”¨æˆ¶ä¿¡æ¯æ’å…¥åˆ°æ•¸æ“šåº«.
 		 */
 		UserDAO dao = new UserDAO();
 		
@@ -52,14 +52,14 @@ public class AddUserServlet extends HttpServlet{
 		user.setPhone(phone);
 		try {
 			dao.save(user);
-			out.println("²K¥[¦¨¥\<br/>");
-			//­«©w¦V¨ì¥Î¤á¦Cªí
+			out.println("æ·»åŠ æˆåŠŸ<br/>");
+			//é‡å®šå‘åˆ°ç”¨æˆ¶åˆ—è¡¨
 			
 			response.sendRedirect("list");
-			System.out.println("­«©w¦V¤§«áªº¥N½X");
+			System.out.println("é‡å®šå‘ä¹‹å¾Œçš„ä»£ç¢¼");
 		} catch (Exception e) {
 			e.printStackTrace();
-			out.println("¨t²ÎÁc¦£,µy«á­«¸Õ");
+			out.println("ç³»çµ±ç¹å¿™,ç¨å¾Œé‡è©¦");
 		}	
 	}
 }

@@ -33,30 +33,30 @@ public class ActionServlet extends HttpServlet{
 		
 		if("/list".equals(action)){
 			/*
-			 * ¨Ï¥ÎDAO¬d¸ß¼Æ¾Ú®w,±N©Ò¦³¥Î¤á«H®§¬d¸ß¥X¨Ó.
+			 * ä½¿ç”¨DAOæŸ¥è©¢æ•¸æ“šåº«,å°‡æ‰€æœ‰ç”¨æˆ¶ä¿¡æ¯æŸ¥è©¢å‡ºä¾†.
 			 */
 			UserDAO dao = new UserDAO();
 			try {
 				List<User> users = dao.findAll();
 				/*
-				 *	¨Ì¾Ú¬d¸ß¨ìªº¥Î¤á«H®§,¿é¥Xªí®æ. 
+				 *	ä¾æ“šæŸ¥è©¢åˆ°çš„ç”¨æˆ¶ä¿¡æ¯,è¼¸å‡ºè¡¨æ ¼. 
 				 */
-				//step1.¸j©w¼Æ¾Ú¨ìrequest¹ï¶H¤W.
+				//step1.ç¶å®šæ•¸æ“šåˆ°requestå°è±¡ä¸Š.
 				request.setAttribute("users", users);
-				//step2.Àò±oÂàµo¾¹
+				//step2.ç²å¾—è½‰ç™¼å™¨
 				RequestDispatcher rd = 
 						request.getRequestDispatcher(
 								"listUsers.jsp");
-				//step3.Âàµo
+				//step3.è½‰ç™¼
 				rd.forward(request,response);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
-				out.println("¨t²ÎÁc¦£,µy«á­«¸Õ");
+				out.println("ç³»çµ±ç¹å¿™,ç¨å¾Œé‡è©¦");
 			}
 		}else if("/add".equals(action)){		
 			/*
-			 * Åª¨ú¥Î¤á«H®§
+			 * è®€å–ç”¨æˆ¶ä¿¡æ¯
 			 */
 			String username = 
 					request.getParameter("uname");
@@ -70,12 +70,12 @@ public class ActionServlet extends HttpServlet{
 					+ pwd + " phone:" + phone);
 			
 			/*
-			 * ªA°È¾¹ºİÀ³¸Ó¹ï¥Î¤á´£¥æªº¼Æ¾Ú¶i¦æ¦Xªk©ÊÀË¬d,
-			 * ¤ñ¦p,ÀË¬d¥Î¤á¦W¬O§_¬°ªÅµ¥,¦¹³B¼È®É¤£¦Ò¼{.
+			 * æœå‹™å™¨ç«¯æ‡‰è©²å°ç”¨æˆ¶æäº¤çš„æ•¸æ“šé€²è¡Œåˆæ³•æ€§æª¢æŸ¥,
+			 * æ¯”å¦‚,æª¢æŸ¥ç”¨æˆ¶åæ˜¯å¦ç‚ºç©ºç­‰,æ­¤è™•æš«æ™‚ä¸è€ƒæ…®.
 			 */
 			
 			/*
-			 * ¨Ï¥ÎDAO±N¥Î¤á«H®§´¡¤J¨ì¼Æ¾Ú®w.
+			 * ä½¿ç”¨DAOå°‡ç”¨æˆ¶ä¿¡æ¯æ’å…¥åˆ°æ•¸æ“šåº«.
 			 */
 			UserDAO dao = new UserDAO();
 			
@@ -85,49 +85,49 @@ public class ActionServlet extends HttpServlet{
 			user.setPhone(phone);
 			try {
 				dao.save(user);
-				out.println("²K¥[¦¨¥\<br/>");
+				out.println("æ·»åŠ æˆåŠŸ<br/>");
 				
-				//­«©w¦V¨ì¥Î¤á¦Cªí
+				//é‡å®šå‘åˆ°ç”¨æˆ¶åˆ—è¡¨
 				response.sendRedirect("list.do");
-				System.out.println("­«©w¦V¤§«áªº¥N½X");
+				System.out.println("é‡å®šå‘ä¹‹å¾Œçš„ä»£ç¢¼");
 			} catch (Exception e) {
 				e.printStackTrace();
-				out.println("¨t²ÎÁc¦£,µy«á­«¸Õ");
+				out.println("ç³»çµ±ç¹å¿™,ç¨å¾Œé‡è©¦");
 			}	
 		}else if("/del".equals(action)){
-			//Åª¨ú­n§R°£ªº­û¤uªºid
+			//è®€å–è¦åˆªé™¤çš„å“¡å·¥çš„id
 			String id =
 					request.getParameter("id");
-			//½Õ¥ÎDAO´£¨Ñªº¤èªk,§R°£¼Æ¾Ú®w¤¤ªº¹ïÀ³ªº­û¤u¬ö¿ı
+			//èª¿ç”¨DAOæä¾›çš„æ–¹æ³•,åˆªé™¤æ•¸æ“šåº«ä¸­çš„å°æ‡‰çš„å“¡å·¥ç´€éŒ„
 			UserDAO dao = new UserDAO();
 			try {
 				dao.delete(Integer.parseInt(id));
-				//­«©w¦V¨ì¥Î¤á¦Cªí
+				//é‡å®šå‘åˆ°ç”¨æˆ¶åˆ—è¡¨
 				response.sendRedirect("list.do");
 			} catch (Exception e) {
 				e.printStackTrace();
-				out.println("¨t²ÎÁc¦£,µy«á­«¸Õ");
+				out.println("ç³»çµ±ç¹å¿™,ç¨å¾Œé‡è©¦");
 			}
 		}else if("/login".equals(action)){
-			//Åª¨ú¥Î¤á¦W©M±K½X.
+			//è®€å–ç”¨æˆ¶åå’Œå¯†ç¢¼.
 			String username = request.getParameter("uname");
 			String pwd = request.getParameter("pwd");
 			System.out.println("username:" + username + "pwd:"+ pwd);
-			//¨Ï¥Îdao¬d¸ß¼Æ¾Ú®w,¬İ¬O§_¦³²Å¦X±ø¥óªº¬ö¿ı.
+			//ä½¿ç”¨daoæŸ¥è©¢æ•¸æ“šåº«,çœ‹æ˜¯å¦æœ‰ç¬¦åˆæ¢ä»¶çš„ç´€éŒ„.
 			UserDAO dao = new UserDAO();
 			try {
 				User user = dao.find(username);
 				if(user != null && user.getPwd().equals(pwd)){
-					//µn¤J¦¨¥\,¸õÂà¥Î¤á¦Cªí.
+					//ç™»å…¥æˆåŠŸ,è·³è½‰ç”¨æˆ¶åˆ—è¡¨.
 					response.sendRedirect("list.do");
 				}else{
-					//µn¤J¥¢±Ñ,´£¥Ü¥Î¤á.
-					request.setAttribute("login_failed","¥Î¤á¦W©Î±K½X¿ù»~");
+					//ç™»å…¥å¤±æ•—,æç¤ºç”¨æˆ¶.
+					request.setAttribute("login_failed","ç”¨æˆ¶åæˆ–å¯†ç¢¼éŒ¯èª¤");
 					request.getRequestDispatcher("login.jsp").forward(request, response);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-				out.println("¨t²ÎÁc¦£,µy«á­«¸Õ");
+				out.println("ç³»çµ±ç¹å¿™,ç¨å¾Œé‡è©¦");
 			}
 			
 		}

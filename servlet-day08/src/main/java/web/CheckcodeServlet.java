@@ -47,7 +47,8 @@ public class CheckcodeServlet extends HttpServlet {
 		g.setFont(new Font(null,Font.BOLD,24));
 		
 		//step6.生成驗證碼.
-		String number = r.nextInt(99999) + "";
+//		String number = r.nextInt(99999) + "";
+		String number = getNumber(5);
 		//step7.將驗證碼畫到圖片上.
 		g.drawString(number, 5, 25);
 		
@@ -70,6 +71,22 @@ public class CheckcodeServlet extends HttpServlet {
 		javax.imageio.ImageIO.write(image, "jpeg", os);
 		os.close();
 		
+	}
+	
+	/**
+	 * 長度為size個字節,並隨機從"A-Z,0-9"中選取字節構成的驗證碼
+	 */
+	private String getNumber(int size){
+		String number = "";
+		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
+				+ "0123456789";
+		Random r = new Random();
+		for(int i = 0;i<size;i++){
+			number += chars.charAt(
+					r.nextInt(chars.length()));
+		}
+		
+		return number;
 	}
 
 }

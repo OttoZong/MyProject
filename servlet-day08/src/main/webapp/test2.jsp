@@ -6,8 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=BIG5">
 <title>Insert title here</title>
 </head>
-<body style="font-size:30px;">
-	Hello<br/>
-	<img src="checkcode"/>
-</body>
+	<body style="font-size:30px;">
+		Hello<br/>
+		<img src="checkcode" border="1"
+		onclick="this.src='checkcode?' + Math.random()"/>
+	</body>
 </html>

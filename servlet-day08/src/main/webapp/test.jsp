@@ -8,6 +8,7 @@
 </head>
 <body style="font-size:30px;">
 	Hello<br/>
-	<img src="images/B01.jpg"/>
+	<img src="images/B01.jpg"/
+	onclick="this.src='image/B02.jpg'"/>
 </body>
 </html>

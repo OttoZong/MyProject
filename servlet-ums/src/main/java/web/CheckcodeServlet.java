@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class CheckcodeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -49,6 +50,13 @@ public class CheckcodeServlet extends HttpServlet {
 		//step6.生成驗證碼.
 //		String number = r.nextInt(99999) + "";
 		String number = getNumber(5);
+		
+		//將number綁訂到session對象上,
+		//以便進行後面的驗證(與用戶提交的驗證碼進行比較)
+		HttpSession session = 
+				request.getSession();
+		session.setAttribute("number", number);
+		
 		//step7.將驗證碼畫到圖片上.
 		g.drawString(number, 5, 25);
 		

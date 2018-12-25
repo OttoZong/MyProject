@@ -47,10 +47,28 @@
 									class="inputgri" name="pwd" />
 								</td>
 							</tr>
+							<tr>
+								<td valign="middle" align="right">
+									驗證碼:
+								</td>
+								<td valign="middle" align="left">
+									<input type="text" 
+									class="inputgri" name="number" />
+									<img src="checkcode"  
+										onclick="this.src='checkcode?' + Math.random()"/>
+									<%
+										String msg2 = 
+										(String)request.getAttribute("number_error");
+									%>
+									<span style="color:red;font-size:24px;">
+										<%=msg2 == null ? "" : msg2 %>
+									</span>	
+								</td>
+							</tr>
 						</table>
 						<p>
 							<input type="submit" class="button"
-							 value="登入&raquo;" />
+							 value="登入 &raquo;" />
 						</p>
 					</form>
 				</div>
@@ -59,4 +77,3 @@
 		</div>
 	</body>
 </html>
-

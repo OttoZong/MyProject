@@ -9,7 +9,7 @@ import java.util.Properties;
 import org.apache.commons.dbcp.BasicDataSource;
 
 public class DBUtils {
-	//1.
+	//1.獲得配置數據.
 	static String driverClassName;
 	static String url;
 	static String userName;
@@ -44,7 +44,7 @@ public class DBUtils {
 		
 	}
 	
-	//2.
+	//2.獲得連接對象方法.
 	public static Connection getConnection() throws SQLException{
 		Connection conn=bs.getConnection();
 		return conn;
@@ -61,7 +61,7 @@ public class DBUtils {
 			}
 		}
 	}
-	//4.rollback方法.
+	//4.rollback方法
 	public static void rollBack(Connection conn){
 		if (conn!=null) {
 			try {
@@ -72,7 +72,9 @@ public class DBUtils {
 		}
 	}
 	
-	
+	public static void main(String[] args) throws SQLException{
+		System.out.println(getConnection());
+	}
 	
 	
 }

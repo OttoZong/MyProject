@@ -11,8 +11,8 @@ import javax.xml.transform.Result;
 import entity.User;
 import util.DBUtils;
 /**
- *  DAOÃþ:
- *  	¥Î©ó«Ê¸Ë¼Æ¾Ú³X°ÝÅÞ¿è
+ *  DAOï¿½ï¿½:
+ *  	ï¿½Î©ï¿½Ê¸Ë¼Æ¾Ú³Xï¿½ï¿½ï¿½Þ¿ï¿½
  * @author Otto
  *
  */

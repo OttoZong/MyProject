@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
 import entity.User;
@@ -109,6 +110,22 @@ public class ActionServlet extends HttpServlet{
 				out.println("系統繁忙,稍後重試");
 			}
 		}else if("/login".equals(action)){
+			/*
+			 * 先比較驗證碼是否正確:
+			 * number1:用戶提交的驗證碼.
+			 * number2:事先綁定到session對象上的驗證碼.
+			 */
+			String number1 = request.getParameter("number");
+			HttpSession session = request.getSession();
+			String number2 = (String)session.getAttribute("number");
+			if(!number1.equals(number2)){
+				//驗證碼不正確,則給用戶相對應的提示.
+				request.setAttribute("number_error", "驗證碼不正確");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+				
+				return;				
+			}
+			
 			//讀取用戶名和密碼.
 			String username = request.getParameter("uname");
 			String pwd = request.getParameter("pwd");

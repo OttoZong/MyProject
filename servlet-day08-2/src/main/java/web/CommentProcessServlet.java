@@ -13,6 +13,8 @@ public class CommentProcessServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("service begin...");
+		
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -20,6 +22,7 @@ public class CommentProcessServlet extends HttpServlet {
 		String content = request.getParameter("content");
 		out.println("你的評論是:" + content);
 		
+		System.out.println("servlet end.");
 	}
 
 }

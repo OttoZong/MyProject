@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <!-- 配置全局的初始化參數 -->
+  <context-param>
+  	<param-name>company</param-name>
+  	<param-value>台北中正區</param-value>
+  </context-param>
+  
+  <!-- 配置監聽器 -->
+  <listener>
+  	<listener-class>web.CountListener</listener-class>
+  </listener>
+  
   <servlet>
-    <description></description>
     <servlet-name>SomeServlet</servlet-name>
     <servlet-class>web.SomeServlet</servlet-class>
   </servlet>
@@ -10,7 +20,6 @@
     <url-pattern>/some</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <servlet-name>OtherServlet</servlet-name>
     <servlet-class>web.OtherServlet</servlet-class>
   </servlet>

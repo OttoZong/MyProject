@@ -26,11 +26,17 @@ public class SomeServlet extends HttpServlet {
 		 * getServletContext方法.
 		 * 
 		 */
-//		ServletContext sc = getServletContext();
-//		sc.setAttribute("username", "Sally");
+		ServletContext sc = getServletContext();
+		sc.setAttribute("username", "Sally");
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("username", "Giving");
+		/**
+		 * 讀取全局初始化參數.
+		 */	
+		String company = sc.getInitParameter("company");
+		System.out.println("company:" + company);
+		
+//		HttpSession session = request.getSession();
+//		session.setAttribute("username", "Giving");
 		
 	}
 

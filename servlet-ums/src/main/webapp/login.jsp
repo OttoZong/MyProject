@@ -34,7 +34,7 @@
 										(String)request.getAttribute("login_failed");
 									%>
 									<span style="color:red;font-size:24px;">
-									<%=msg == null ? "" : msg%>
+										${login_failed}
 									</span>
 								</td>
 							</tr>

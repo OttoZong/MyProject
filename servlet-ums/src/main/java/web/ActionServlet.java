@@ -32,7 +32,24 @@ public class ActionServlet extends HttpServlet{
 				"text/html;charset=utf-8");	
 		PrintWriter out = response.getWriter();	
 		
-		if("/list".equals(action)){
+		if("/toLogin".equals(action)){
+			request.getRequestDispatcher(
+					"/WEB-INF/login.jsp")
+			.forward(request, response);
+		
+		}else if("/list".equals(action)){
+			/*
+			 * 進行session驗證,只有登錄過的用戶,才能使用該功能
+			 */
+			HttpSession session = request.getSession();
+			
+			Object obj = session.getAttribute("user");
+			
+			if(obj == null){
+				//沒有登入,則跳轉到登錄頁面.
+				response.sendRedirect("login.jsp");
+				return;
+			}
 			/*
 			 * 使用DAO查詢數據庫,將所有用戶信息查詢出來.
 			 */
@@ -135,6 +152,10 @@ public class ActionServlet extends HttpServlet{
 			try {
 				User user = dao.find(username);
 				if(user != null && user.getPwd().equals(pwd)){
+					
+					//登陸成功,綁定數據到session對象.
+					session.setAttribute("user", user);
+					
 					//登入成功,跳轉用戶列表.
 					response.sendRedirect("list.do");
 				}else{

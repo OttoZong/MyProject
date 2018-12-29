@@ -1,6 +1,7 @@
 <%@ page pageEncoding="utf-8"
 contentType="text/html; charset=utf-8"%>
 <%@ page import="entity.*,java.util.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -37,37 +38,29 @@ contentType="text/html; charset=utf-8"%>
 							操作
 						</td>
 					</tr>
-					<%
-						List<User> users = 
-							(List<User>)request.getAttribute("users");
-						for(int i = 0; i < users.size(); i ++){
-							User u = users.get(i);
-								%>
-						<tr class="row<%=i % 2 + 1%>">
+					<c:forEach items="${users}" var="u" varStatus="s">
+					<tr class="row${s.index % 2 + 1}">
 						 <td>
-						  <%=u.getId()%>
+						  	${u.getId}
 						 </td>
 						 <td>
-								<%=u.getUsername()%>
-							</td>
-							<td>
-								<%=u.getPwd()%>
-							</td>
-							<td>
-								<%=u.getPhone()%>
-							</td>
-							<td>
-							 <a href="del.do?id=<%=u.getId()%>"
-							 onclick="return confirm('確定刪除<%=u.getUsername()%>嗎?');">刪除</a>&nbsp;
-							</td>
+							${u.username}
+						</td>
+						<td>
+							${u.pwd}
+						</td>
+						<td>
+							${u.phone}
+						</td>
+						<td>
+							 <a href="del.do?id=${u.id}"
+							 onclick="return confirm('確定刪除${u.username}嗎?');">刪除</a>&nbsp;
+						</td>
 						</tr>
-						<% 
-						}
-						
-					%>
+						</c:forEach>
 					</table>
 					<p>
-					 <input type="button"
+					 <input type="button" 
 					 class="button"
 					 value="添加用戶"
 					 onclick="location='addUser.jsp'"/>

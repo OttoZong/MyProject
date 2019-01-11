@@ -10,7 +10,10 @@ servlet-ums
 
     Web User list增刪查
 
+ShootGame
 
+    just a toy...
+    用上了繼承、泛型和Collection
 
 
 

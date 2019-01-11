@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans>
-	<!-- 配置模型(處理器) -->
-	<bean class="base.controller.HelloController"/>
-	<bean class="base.controller.LoginController"/>
-</beans>
-

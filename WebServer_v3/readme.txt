@@ -1,1 +1,0 @@
-將客戶端發送過來的請求封裝到一個HttpRequest對象中,而不在ClientHandler中直接處理.

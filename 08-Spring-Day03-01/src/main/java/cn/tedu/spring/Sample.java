@@ -14,8 +14,13 @@ public class Sample {
 		//2.從Spring容器中獲取對象.
 		ValueBean valueBean = ac.getBean(
 				"valueBean",ValueBean.class);
+		Student student = ac.getBean(
+				"stu",Student.class);
+		
 		//3.測試
 		System.out.println(valueBean);
+		System.out.println();
+		System.out.println(student);
 		//?.釋放資源.
 		ac.close();
 	}

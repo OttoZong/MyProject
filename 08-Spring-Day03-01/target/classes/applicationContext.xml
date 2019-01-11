@@ -58,7 +58,36 @@
 		<util:properties
 			id="dataSource"
 			location="classpath:db-config.properties" />
-	
+		
+		
+		<!-- 配置Student -->
+		<bean id="stu"
+			class="cn.tedu.spring.Student" >
+			<!-- 配置讀取List中的某個值 -->
+			<property 
+			name="province"
+			value="#{valueBean.provinces[2]}" />	
+			<!-- 配置讀取整個Set -->
+			<property 
+				name="cities"
+				value="#{valueBean.cities}" />
+			<!-- 配置讀取Map中的某個值 -->
+			<property 
+				name="uid"
+				value="#{valueBean.session.uid}"/>
+			<!-- 配置讀取Map中的某個值 -->
+			<property
+				name="name"
+				value="#{valueBean.session['username']}" />			
+			<!-- 配置讀取Propeties中的值 -->
+			<property
+				name="jdbcUrl"
+				value="#{valueBean.dbConfig.url}"/>
+			<property 
+				name="jdbcDriver" 
+				value="#{dataSource.driver}" />
+		</bean>
+		
 </beans>
 
 

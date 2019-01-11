@@ -12,7 +12,6 @@ public class ValueBean {
 	private Map<String,String> session;
 	private Properties dbConfig;
 	
-	
 	public List<String> getProvinces() {
 		return provinces;
 	}

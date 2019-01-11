@@ -20,7 +20,7 @@ Spring-MVC(Practice)
 
 WebServer(Practice)
 
-	JavaSE
+	JavaSE and Collection
 	
 	
 	

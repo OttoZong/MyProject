@@ -1,0 +1,124 @@
+##複習
+
+1.jdbc是一套標準,接口
+
+2.4個字符串參數
+
+	- className->com.mysql.jdbc.Driver
+	- url--->jdbc:mysql://ip:端口/庫名
+	- user-->mysql登陸名
+	- password-->登陸密碼
+	
+	- mysql版本6.0
+	- url--->jdbc:mysql://ip:端口/庫名?serverTimezone=UTC
+	- url--->jdbc:mysql://ip:端口/庫名?serverTimezone=Asia/Shanghai
+	
+3.操作步驟
+	1.通過maven導包.
+	2.註冊驅動Class.forname(className).
+	3.獲取連接對象Connection conn = DriverManager.getConnection();
+	4.獲取statement對象Statement.
+	sta=conn.createStatement();
+	5.執行sql語句
+		- sta.execute(sql)---ddl,dcl
+		- sta.executeUpdate(dml)
+		- sta.executeQuery(dql)
+	6.把查詢結果集存入resultset中.
+		while(rs.next()){
+			int--->rs.getInt("字段名")
+			int--->rs.getInt("字段下標")
+		}
+		
+- 把jdbc數據庫操作做優化.
+
+## 連接池
+
+- 因為多線程併發,數據庫連接上限只有300-500,那麼大量的同時訪問數據操作,就需要使用連接池技術.		
+	
+		
+- 連接池原理---重用池裡面的連接對象.
+	1.在maven中導入dbcp.
+	2.創建連接池管理員對象.
+	3.設置必選參數--4個.
+	4.設置連接池的管理策略參數.
+	5.通過連接池管理員對象獲得連接對象.
+
+	
+## 演示連接池阻塞狀態
+
+	class DemoThread extends Thread {
+	int wait;// 睡眠時間
+	String conn_name;
+	public DemoThread(int wait,String conn_name) {
+		this.wait = wait;
+		this.conn_name = conn_name;
+	}
+	@Override
+	public void run() {
+		Connection conn=null;
+		try {
+			//conn適從連接池中得到的.
+			conn=DBUtils3.getConnection();
+			System.out.println(conn_name+"獲取連接"+"---"+conn);
+			Statement sta = conn.createStatement();
+			String sql="select 'hello' from dual";
+			ResultSet rs = sta.executeQuery(sql);
+			while(rs.next()){
+				System.out.println(1);
+			}
+			Thread.sleep(wait);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils3.closeConnection(conn);
+		}
+		
+	}
+
+## 預處理執行sql語句
+
+- 由於preparedStatement 對象已預編編譯,所以其執行速度要快於 Statement 對象.
+因此,多次執行的SQL 語句經常創建為 PreparedStatement 對象,以提高效率.
+- Statement 用於執行靜態的sql語句.
+- 由於PreparedStatement創建對象消耗資源高,所以只執行一次sql語句,不使用PreparedStatement.
+
+
+connection conn 單線程
+statement sta----conn
+
+把獲得單線程conn
+關閉conn
+
+## 結果集元數據
+
+- 元數據的解釋
+
+- 驗證效率
+1.對比statement 和 preparedstatement的效率.
+statement			---	45789
+preparedstatement	---	43901
+關閉自動提交			---	266
+
+
+### 課堂練習
+
+create table account(
+		id int,
+		money double(10,2)
+	)	
+	insert into account values (1,5000);
+	insert into account values (1,10000);
+	
+連接池,Preparedstatement,重寫DBUtile
+業務邏輯id 1--->id 2 轉帳
+update account set money = money-5000 where id=1;
+update account set money = money-5000 where id=2;
+
+
+
+
+
+
+
+
+		

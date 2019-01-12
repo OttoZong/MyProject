@@ -32,14 +32,14 @@ public class LifeServlet extends HttpServlet{
 		System.out.println("LifeServlet's doGet()");
 		
 		/*
-		 * ³q¹LÄ~©Ó¦ÛGenericServletªº¤èªk¨ÓÀò±o,
-		 * ServletConfig¹ï¶H.
+		 * é€šéç¹¼æ‰¿è‡ªGenericServletçš„æ–¹æ³•ä¾†ç²å¾—,
+		 * ServletConfigå°è±¡.
 		 */
 		ServletConfig config = getServletConfig();
 		/*
-		 * Åª¨úªì©l¤Æ°Ñ¼Æ.
+		 * è®€å–åˆå§‹åŒ–åƒæ•¸.
 		 */
 		String company = config.getInitParameter("company");
-		System.out.println("¤½¥q:"+ company);
+		System.out.println("å…¬å¸:"+ company);
 	}
 }

@@ -19,34 +19,34 @@ public class BmiServlet extends HttpServlet{
 		
 		response.setContentType("text/html;charset=utf-8");
 		
-		//Åª¨ú¨­°ªÅé­«
+		//è®€å–èº«é«˜é«”é‡
 		String height = request.getParameter("height");
 		String weight = request.getParameter("weight");
-		//­pºâbmi«ü¼Æ
+		//è¨ˆç®—bmiæŒ‡æ•¸
 		double bmi = 
-				Double.parseDouble(weight)/
+				(Double.parseDouble(weight)/
 				Double.parseDouble(height)/	
-				Double.parseDouble(height);
+				Double.parseDouble(height))*10000;
 		
 		
-		//Åª¨ú¼Æ­È½d³ò.
+		//è®€å–æ•¸å€¼ç¯„åœ.
 		ServletConfig config = getServletConfig();
 		String min = config.getInitParameter("min");
 		String max = config.getInitParameter("max");
 		
 
-		//¨Ì·Óbmi«ü¼Æ,§PÂ_Åé½èª¬ªp.
-		String status = "¥¿±`";
+		//ä¾ç…§bmiæŒ‡æ•¸,åˆ¤æ–·é«”è³ªç‹€æ³.
+		String status = "æ­£å¸¸";
 		if(bmi<Integer.parseInt(min)){
-			status = "¹L»´";
+			status = "éè¼•";
 		}
 		if(bmi<Integer.parseInt(min)){
-			status = "¹L­«";
+			status = "éé‡";
 		}
-		//¿é¥X
+		//è¼¸å‡º
 		response.getWriter().println(
-				"§Aªºbmi«ü¼Æ¬O:"+ bmi + 
-				" Åé½èª¬ªp¬O:" + status );
+				"ä½ çš„bmiæŒ‡æ•¸æ˜¯:"+ bmi + 
+				" é«”è³ªç‹€æ³æ˜¯:" + status );
 	}
 	
 }

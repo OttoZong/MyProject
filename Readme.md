@@ -9,24 +9,50 @@ Eric_Class(Practice)
 Java_Base(Practice)	
 
 	JavaSE
+
+
 	
-servlet(Practice)
+shoot game
+		飛機大戰
 
-	Servlet
+servlet-day01 
+		撰寫servlet
 
-Spring-MVC(Practice)
+servlet-day03 
+		訪問數據庫、JDBC(db.properties、DBUtils、dbcp)、DAO
 
-	Framework
+servlet-day04 
+		Servlet生命週期
 
-WebServer(Practice)
+servlet-day05 
+		認識jsp、轉發器
 
-	JavaSE and Collection
-	
-<<<<<<< HEAD
-	
-=======
-CanView_Project
-	
-	show bigger not a toy project
->>>>>>> 9d11225ab5e2a792f704a58003533968780b99cb
+servlet-day06 
+		比較轉發與重定向
+
+servlet-day07 
+		Cookie、Session
+
+servlet-day08 
+		驗證exu碼、Filter
+
+servlet-day09 
+		監聽器、ServletContext
+
+servlet-day10 
+		jsp基礎
+
+servlet-day11 
+		jstl(java standard tag lib)
+
+servlet-day12 
+		MVC
+
+
+
+
+servlet-mvc 	
+		MVC
+servlet-ums 
+		Web User list增刪查
 	

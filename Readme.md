@@ -42,7 +42,7 @@ servlet-day07
 
 servlet-day08 
 
-	驗證exu碼、Filter
+	驗證碼、Filter
 
 servlet-day09 
 

@@ -12,7 +12,19 @@ public class User implements Serializable{
 	private String phone;
 	private String email;
 	
+
+	public User() {
+		super();
+	}
 	
+	public User(Integer id, String username, String password, String phone, String email) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.phone = phone;
+		this.email = email;
+	}
 	
 	public Integer getId() {
 		return id;

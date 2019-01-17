@@ -27,8 +27,10 @@
     		
     		
 		<!-- 配置HandlerMapping -->
-		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-			<property name="prefix" value="/WEB-INF/jsp/" />
+		<bean 
+			class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+			<property name="prefix" 
+				value="/WEB-INF/jsp/" />
 			<property name="suffix" value=".jsp" />
 		</bean>
 		
@@ -37,9 +39,11 @@
 		<util:properties id="dbConfig"
 			location="classpath:db.properties" />
 		
+		
 		<!-- 配置bean用於數據庫連接池 -->
-		<bean id="dataSource" 
-			class="org.apache.commons.dbcp.BasicDataSource" >
+		<bean id="dataSource"
+			class="org.apache.commons.dbcp.BasicDataSource"
+			destroy-method="close" >
 			<property name="url" 
 				value="#{dbConfig.url}" />
 			<property name="driverClassName" 
@@ -49,7 +53,7 @@
 			<property name="password" 
 				value="#{dbConfig.password}" />
 			<property name="initialSize" 
-				value="#{dbConfig.initialSize}" />
+				value="#{dbConfig.initSize}" />
 			<property name="maxActive" 
 				value="#{dbConfig.maxActive}" />
 		</bean>

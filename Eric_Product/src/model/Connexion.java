@@ -24,6 +24,7 @@ public class Connexion {
 			System.out.println(e.getMessage());
 		}
 	}
+	
 	public Connection getConnection(){
 		return conn;
 	}

@@ -4,10 +4,10 @@ import tw.ottozong.spring.bean.Uid;
 
 public interface IUidDao {
 	/**
-	 * 新增todolist id
+	 * 新增todolist username
 	 * 
 	 * @param uid
-	 * @return 新增的用戶的id 如果新增失敗,返回-1.
+	 * @return 新增的用戶的uid 如果新增失敗,返回-1.
 	 */
 	Integer insert_list(Uid uid);
 

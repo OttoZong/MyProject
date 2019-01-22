@@ -21,17 +21,12 @@ public class UidDaoImpl implements IUidDao {
 	private BasicDataSource dataSource;
 
 	public Integer insert_list(Uid uid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public Integer insert(Uid uid) {
 		// 1.聲明必要的變量
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "INSERT INTO u_todolist " 
-					+ " (id , uid, todo, list) " 
+					+ " (id , username, list, todo) " 
 					+ " VALUES " 
 					+ " (?, ?, ?, ?)";
 
@@ -41,7 +36,8 @@ public class UidDaoImpl implements IUidDao {
 			// 2.獲取連結.
 			conn = dataSource.getConnection();
 			// 3.預編譯SQL.
-			pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+			pstmt = conn.prepareStatement(
+					sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setInt(1, uid.getId());
 			pstmt.setString(2, uid.getUsername());
 			pstmt.setString(3, uid.getTodo());
@@ -62,11 +58,10 @@ public class UidDaoImpl implements IUidDao {
 		}
 
 		return id;
+
 	}
 
 	
-	
-
 
 	public Uid findUserByUsername(String username) {
 		// TODO Auto-generated method stub
@@ -78,7 +73,4 @@ public class UidDaoImpl implements IUidDao {
 		return null;
 	}
 
-
 }
-
-

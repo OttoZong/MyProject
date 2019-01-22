@@ -17,7 +17,7 @@ public class TestDao {
 		IUidDao uidDao =
 				ac.getBean("uidDao",IUidDao.class);
 		//3.測試功能.
-		String id = "ott";
+		String username = "ott";
 		Uid uid = new Uid(
 			0,
 			"Amy",

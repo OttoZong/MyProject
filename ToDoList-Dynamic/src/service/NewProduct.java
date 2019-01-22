@@ -29,7 +29,7 @@ public class NewProduct extends HttpServlet{
 		
 	}
 
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html;charset=UTF-8");
 		
@@ -57,9 +57,12 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		}
 		
 		Product p = new Product();
-		Controller ct = new Controller();
-		response.getWriter().println("");
+		Controller cp = new Controller();
+		
+		response.getWriter().println("p:" + p);
+		response.getWriter().println("cp:" + cp);
 	}
+	
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

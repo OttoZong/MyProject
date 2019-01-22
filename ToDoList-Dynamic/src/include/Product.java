@@ -2,11 +2,10 @@ package include;
 
 public class Product {
 	private Integer id;
-	private String uid;
+	private String username;
 	private String todo;
 	private String list;
-	
-	
+		
 	
 	public Product() {
 		super();
@@ -14,15 +13,13 @@ public class Product {
 	}
 
 
-
-	public Product(Integer id, String uid, String todo, String list) {
+	public Product(Integer id, String username, String todo, String list) {
 		super();
 		this.id = id;
-		this.uid = uid;
+		this.username = username;
 		this.todo = todo;
 		this.list = list;
 	}
-
 
 
 	public Integer getId() {
@@ -30,23 +27,19 @@ public class Product {
 	}
 
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
 
-
-	public String getUid() {
-		return uid;
+	public String getUsername() {
+		return username;
 	}
 
 
-
-	public void setUid(String uid) {
-		this.uid = uid;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
 
 
 	public String getTodo() {
@@ -54,11 +47,9 @@ public class Product {
 	}
 
 
-
 	public void setTodo(String todo) {
 		this.todo = todo;
 	}
-
 
 
 	public String getList() {
@@ -66,11 +57,9 @@ public class Product {
 	}
 
 
-
 	public void setList(String list) {
 		this.list = list;
 	}
-
 
 
 	@Override
@@ -80,10 +69,9 @@ public class Product {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((list == null) ? 0 : list.hashCode());
 		result = prime * result + ((todo == null) ? 0 : todo.hashCode());
-		result = prime * result + ((uid == null) ? 0 : uid.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
-
 
 
 	@Override
@@ -110,21 +98,18 @@ public class Product {
 				return false;
 		} else if (!todo.equals(other.todo))
 			return false;
-		if (uid == null) {
-			if (other.uid != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!uid.equals(other.uid))
+		} else if (!username.equals(other.username))
 			return false;
 		return true;
 	}
 
 
-
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", uid=" + uid + ", todo=" + todo + ", list=" + list + "]";
+		return "Product [id=" + id + ", username=" + username + ", todo=" + todo + ", list=" + list + "]";
 	}
 
-	
-	
 }

@@ -9,8 +9,9 @@ public class Uid implements Serializable{
 	
 	private Integer id;
 	private String username;
-	private String todo;
 	private String list;
+	private String todo;
+	
 	
 		
 	public Uid() {

@@ -13,11 +13,16 @@ public class Model extends Conn {
 		PreparedStatement pst = null;
 		boolean flag = false;
 
-		String sql = "call inserttodolist(?,?,?,?)";
+		String sql = "INSERT INTO u_todolist " 
+				+ " (id , username, list, todo) " 
+				+ " VALUES " 
+				+ " (?, ?, ?, ?)";
+		
 		try {
+			
 			pst = getConnection().prepareStatement(sql);
 			pst.setInt(1, p.getId());
-			pst.setString(2, p.getUid());
+			pst.setString(2, p.getUsername());
 			pst.setString(3, p.getTodo());
 			pst.setString(4, p.getList());
 

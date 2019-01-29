@@ -30,9 +30,11 @@ public class ActionServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		// PrintWriter out = response.getWriter();
+		
+		
 		UserDao dao = new UserDao();
 		List lists = dao.findName();
-
+		//送值
 		request.setAttribute("lists", lists);
 		// out.println("lists:"+lists);
 		System.out.println("lists:" + lists);

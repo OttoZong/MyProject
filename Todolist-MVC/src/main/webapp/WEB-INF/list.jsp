@@ -5,20 +5,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+	<jsp:useBean id="list" class="model.User" scope="session"></jsp:useBean>
+	<jsp:setProperty property="*" name="list"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
-	<table class="table" border="1">
+	
+	username: <%=list.getUsername() %><BR><BR>
+	<table class="table" >
 		<tr class="table_header">
-			<td>username</td>
+			
 			<td>List</td>
 			<td>todo</td>
 
 		</tr>
 		<c:forEach items="${lists}" var="u" varStatus="s">
 			<tr class="row${s.index % 2 + 1}">
-				<td>${u.username}</td>
+				
 				<td>${u.list}</td>
 				<td>${u.todo}</td>
 				<td><a href="del.do?id=${u.username}"

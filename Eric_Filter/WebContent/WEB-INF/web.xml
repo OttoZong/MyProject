@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Eric_Filter</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  	<filter>
+  		<filter-name>HelloFilter</filter-name>
+  		<filter-class>tw.com.lccnet.NameFilter</filter-class>
+  		<init-param>
+  			<param-name>name</param-name>
+  			<param-value>Otto</param-value>
+  		</init-param>
+  	</filter>
+  	  
+  	<!--<filter>
+  		<filter-name>WelcomeFilter</filter-name>
+  		<filter-class>tw.com.lccnet.WelcomeFilter</filter-class>
+  	</filter>-->
+  	
+  	<!-- NameFilter -->
+  	<filter>
+  		<filter-name>NameFilter</filter-name>
+  		<filter-class>tw.com.lccnet.NameFilter</filter-class>
+  		<init-param>
+  			<param-name>initName</param-name>
+  			<param-value>Otto</param-value>
+  		</init-param>
+  	</filter>
+  <!-- PasswordFilter -->
+  	<filter>
+  		<filter-name>PasswordFilter</filter-name>
+  		<filter-class>tw.com.lccnet.PasswordFilter</filter-class>
+  		<init-param>
+  			<param-name>initPass</param-name>
+  			<param-value>123456</param-value>
+  		</init-param>
+  	</filter>
+  
+  	<filter-mapping>
+  		<filter-name>NameFilter</filter-name>
+  		<url-pattern>/hello.jsp</url-pattern>
+  	</filter-mapping>
+  	  	<filter-mapping>
+  		<filter-name>PasswordFilter</filter-name>
+  		<url-pattern>/one.jsp</url-pattern>
+  	</filter-mapping>
+  	  	<filter-mapping>
+  		<filter-name>HelloFilter</filter-name>
+  		<url-pattern>/two.jsp</url-pattern>
+  	</filter-mapping>
+</web-app>
